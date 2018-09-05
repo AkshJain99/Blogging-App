@@ -15,7 +15,7 @@ import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE_DIR = os.path.join(BASE_DIR,'blog/templates/blog')
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'blog/templates/blog')
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,9 +25,9 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'blog/templates/blog')
 SECRET_KEY = 'hzetdi)f#0okx$zu5y=7aae$9e6q25#+wmlu%)#=1s9h-m5s&_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =  False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','akshapp.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 # Application definition
 

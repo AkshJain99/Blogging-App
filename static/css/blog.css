@@ -65,7 +65,7 @@
 
   }
   100% {
-    transform:translate(0px,0px);
+    transform:translate(100px,px);
   }
 }
 @keyframes hue{
@@ -73,23 +73,16 @@
   100%{filter:hue-rotate(360deg);}
 
 }
-html,
 body {
-  height: 100%;
-  width: 100%;
+  background: rgba(240, 159, 9, 0.986);
   overflow: hidden;
-  background: #2f294f;
-  margin: 0;
 }
 
-#note {
-  position: absolute;
-  color: rgba(249,241,204,1);
+canvas {
+  bottom: 0;
   left: 0;
-  right: 0;
-  bottom: 20px;
   margin: auto;
-  text-align: center;
-  user-select: none;
-  font-family: Arial;
+  position: absolute;
+  right: 0;
+  top: 0;
 }

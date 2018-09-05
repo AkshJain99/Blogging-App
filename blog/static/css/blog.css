@@ -33,6 +33,9 @@
   font-size: 1.5em;
 }
 
+.textareaclass{
+  border: 2px solid red;
+}
 
 /*COLOR CHANGER*/
 /*Credit and Source: http://codepen.io/thapliyalshivam/pen/dvgXVO*/
@@ -70,24 +73,4 @@
   0%{filter: hue-rotate(0deg);}
   100%{filter:hue-rotate(360deg);}
 
-}
-html,
-body {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  background: #2f294f;
-  margin: 0;
-}
-
-#note {
-  position: absolute;
-  color: rgba(249,241,204,1);
-  left: 0;
-  right: 0;
-  bottom: 20px;
-  margin: auto;
-  text-align: center;
-  user-select: none;
-  font-family: Arial;
-}
+} 
