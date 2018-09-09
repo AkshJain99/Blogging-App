@@ -1,2 +1,2 @@
-Djnago Project
+Django Project
 Blogging site!!!!
