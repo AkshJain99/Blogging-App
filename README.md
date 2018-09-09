@@ -1,1 +1,2 @@
-# mysite
+Djnago Project
+Blogging site!!!!
