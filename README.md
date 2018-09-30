@@ -27,3 +27,4 @@ A. The sky is the limit!
 * `psycopg2-binary 2.7.4`
 * `python-decouple 3.1`
 * `whitenoise 4.0`
+
