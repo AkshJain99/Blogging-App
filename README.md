@@ -10,4 +10,4 @@ This web application creates a very basic blog site using Django. The site allow
 **Link for the website**
 https://mighty-reaches-82829.herokuapp.com/
 
-This project have features of creating blog, commenting on it ,publishing it. 
+**This project have features of creating blog, commenting on it,publishing it.**
