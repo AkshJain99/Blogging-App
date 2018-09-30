@@ -19,11 +19,11 @@ Q. What is in store for the future?
 A. The sky is the limit! 
 
 ### Requirements
-* Python 3.xx
-* dj-database-url 0.5.0
-* Django 1.10.8
-* gunicorn 19.9.0
-* psycopg2 2.7.4
-* psycopg2-binary 2.7.4
-* python-decouple 3.1
-* whitenoise 4.0
+* `Python 3.xx`
+* `dj-database-url 0.5.0`
+* `Django 1.10.8`
+* `gunicorn 19.9.0`
+* `psycopg2 2.7.4`
+* `psycopg2-binary 2.7.4`
+* `python-decouple 3.1`
+* `whitenoise 4.0`
