@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<h1>SIGNUP</h1>
+<form method="POST" action="{% url 'signup' %}">
+    {% csrf_token %}
+    {% if error %}
+    {{ error }}
+    <br />
+    <br />
+    {% endif %}
+    <label>Username</label>
+    <input type="text" name="username" placeholder="Username" required autofocus>
+    <br>
+    <label>Password</label>
+    <input type="password" name="password1" placeholder="Password" required>
+    <br>
+    <label>Confirm Password</label>
+    <input type="password" name="password2" placeholder="Confirm password" required>
+    <br>
+    <button type="submit">Sign Up!</button>
+  </form>
+
+{% endblock %}
