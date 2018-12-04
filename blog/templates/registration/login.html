@@ -17,5 +17,16 @@
         <input type="submit" class='btn btn-primary' value="Login" />
         <input type="hidden" name="next" value="{{ next }}" />
     </form>
+
+    <br />
+
+    <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
+
+    <br />
+
+    <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>
+
+
+
   </div>
 {% endblock %}
