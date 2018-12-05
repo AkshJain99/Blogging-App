@@ -73,6 +73,21 @@ def signup(request):
     else:
         return render(request,'signup.html')
 
+def passwordreset(request):
+    if request.method == "POST":
+        if request.POST['password1'] == request.POST['password2']:
+            u = User.objects.get(username__exact=request.user.username)
+            u.set_password(request.POST['password1'])
+            u.save()
+            return render(request,'post_list.html')
+
+        else:
+            return render(request,'passwordreset.html',{'error':'*Passwords must match'})
+
+    else:
+        return render(request,'passwordreset.html')
+
+
 
 #######################################
 ## Functions that require a pk match ##
