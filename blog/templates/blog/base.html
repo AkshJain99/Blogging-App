@@ -20,9 +20,9 @@
         {# Fonts#}
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
 
-       
-  
-      
+
+
+
 <body class='loader'>
 
 
@@ -36,6 +36,7 @@
         <li><a href="https://www.github.com">GITHUB</a></li>
         <li><a href="https://www.linkedin.com">LiINKEDIN</a></li>
         <li><a href="https://www.facebook.com">FACEBOOK</a></li>
+        <li><a href="{% url 'signup' %}">SIGNUP</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -49,6 +50,10 @@
         </li>
         <li>
           <a href="{% url 'logout' %}" >Log out</a>
+        </li>
+
+        <li>
+          <a href="{% url 'passwordreset' %}" >Reset Password</a>
         </li>
 
         <li>

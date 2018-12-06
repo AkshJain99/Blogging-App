@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from blog.models import Post, Comment
 from django.utils import timezone
 from blog.forms import PostForm, CommentForm
+from django.contrib.auth.models import User
+from django.contrib import auth
 
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
@@ -55,6 +57,37 @@ class DraftListView(LoginRequiredMixin,ListView):
 class PostDeleteView(LoginRequiredMixin,DeleteView):
     model = Post
     success_url = reverse_lazy('post_list')
+
+def signup(request):
+    if request.method == "POST":
+        if request.POST['password1'] == request.POST['password2']:
+            user = User.objects.filter(username = request.POST['username'])
+            if user:
+                return render(request,'signup.html',{'error' : '*Username already exist'})
+            else:
+                user = User.objects.create_user(username = request.POST['username'],password = request.POST['password1'])
+                auth.login(request,user,backend='django.contrib.auth.backends.ModelBackend')
+                return render(request,'post_list.html')
+        else:
+            return render(request,'signup.html',{'error':'*Passwords must match'})
+    else:
+        return render(request,'signup.html')
+
+def passwordreset(request):
+    if request.method == "POST":
+        if request.POST['password1'] == request.POST['password2']:
+            u = User.objects.get(username__exact=request.user.username)
+            u.set_password(request.POST['password1'])
+            u.save()
+            return render(request,'post_list.html')
+
+        else:
+            return render(request,'passwordreset.html',{'error':'*Passwords must match'})
+
+    else:
+        return render(request,'passwordreset.html')
+
+
 
 #######################################
 ## Functions that require a pk match ##
