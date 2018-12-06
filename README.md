@@ -33,6 +33,3 @@
 To get started, the first step is to meet the community. We use gitter to communicate, and there the helpful community will guide you. Gitter is an instant messaging service used by developers and users of GitHub. Gitter uses chatrooms, where developers can join in and can talk about a particular topic. Here is our gitter room link https://gitter.im/Akshjain99/Lobby
 
 
-
-=======
-# mysite this is django
