@@ -6,6 +6,8 @@ urlpatterns = [
     url(r'^$',views.PostListView.as_view(),name='post_list'),
     url(r'^about/$',views.AboutView.as_view(),name='about'),
     url(r'^signup/$',views.signup,name='signup'),
+    url(r'^dashboard/$',views.dashboard,name='dashboard'),
+    url(r'^user_login/$',views.user_login,name='user_login'),
     url(r'^passwordreset/$',views.passwordreset,name='passwordreset'),
     url(r'^post/(?P<pk>\d+)$', views.PostDetailView.as_view(), name='post_detail'),
     url(r'^post/new/$', views.CreatePostView.as_view(), name='post_new'),
@@ -17,4 +19,5 @@ urlpatterns = [
     url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
     url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
+    
 ]

@@ -5,6 +5,9 @@ from django.utils import timezone
 from blog.forms import PostForm, CommentForm
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.contrib.auth import authenticate,login,logout
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse 
 
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
@@ -127,3 +130,24 @@ def comment_remove(request, pk):
     post_pk = comment.post.pk
     comment.delete()
     return redirect('post_detail', pk=post_pk)
+
+def user_login(request):
+
+    if request.method == 'POST':
+
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username,password=password)
+        if user:
+            if user.is_active:
+
+                login(request,user)
+                request.session['member_name'] = username
+                print("Hello World Done")
+                return HttpResponseRedirect(reverse('dashboard'))
+                
+    return render(request,'registration/user_login.html')
+
+def dashboard(request):
+    return render(request,'registration/dashboard.html')
