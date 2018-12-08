@@ -1,25 +1,61 @@
 {% extends "blog/base.html" %}
 {% block content %}
 {% load staticfiles %}
-<h1>USER DETAILS</h1>
+
 <form method="POST" action="{% url 'userdetials' user.id %}" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% if error %}
-    {{ error }}
-    <br />
-    <br />
-    {% endif %}
-    <br>
-    {% if user.profile.photo %}
-          <img src="{{ user.profile.photo.url }}" class="mt-3" height="90px" width="90px" style="border-radius:50%;">
-        {% else %}
-          <img src="{% static 'anymonous.png' %}" class="mt-3" height="90px" width="90px" style="border-radius:50%;">
-    {% endif %}
-    <br><br>
-    <label>Update Profile Picture</label>
-    <input type="file" name="photo">
-    <br>
-    <button type="submit">Submit</button>
-  </form>
+  {% csrf_token %}
+  {% if error %}
+  {{ error }}
+  <br />
+  <br />
+  {% endif %}
+  <br>
+
+  <h1 class="h1 mb-4 font-weight-normal text-center pt-4">Add User Detail</h1>
+
+  <label>First Name</label>
+  <input type="text" name="first_name" class="form-control">
+
+  <label>Last Name</label>
+  <input type="text" name="last_name" class="form-control">
+
+  <label>Bio</label>
+  <textarea name="bio" rows="8" class="form-control" autofocus></textarea>
+
+  <br>
+
+  <label>Profile Image</label>
+  <input type="file" name="photo" class="form-control">
+
+  <br>
+
+  <label>Website</label>
+  <input type="url" name="website" class="form-control">
+
+  <br>
+
+  <label>BirthDate</label>
+  <input type="date" name="birth_date" class="form-control">
+
+  <br>
+
+  <label>Phone Number</label>
+  <input type="number" name="phone" class="form-control">
+
+  <br>
+
+  <label>City</label>
+  <input type="text" name="city" class="form-control">
+
+  <br>
+
+  <label>Country</label>
+  <input type="text" name="country" class="form-control">
+
+  <br>
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Add Detail</button>
+</form>
+
 
 {% endblock %}

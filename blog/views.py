@@ -155,9 +155,17 @@ def dashboard(request):
 @login_required
 def userdetials(request,pk):
     if request.method == "POST":
-        user = User.objects.get(pk=pk)
-        user.profile.photo = request.FILES['photo']
-        user.save()
+        u = User.objects.get(pk=pk)
+        u.first_name = request.POST['first_name']
+        u.last_name = request.POST['last_name']
+        u.profile.birth_date = request.POST['birth_date']
+        u.profile.photo = request.FILES['photo']
+        u.profile.bio = request.POST['bio']
+        u.profile.website = request.POST['website']
+        u.profile.phone = request.POST['phone']
+        u.profile.city = request.POST['city']
+        u.profile.country = request.POST['country']
+        u.save()
         return render(request,'blog/post_list.html')
     else:
         user = get_object_or_404(User,id=pk)
