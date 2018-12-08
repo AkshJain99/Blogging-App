@@ -1,18 +1,26 @@
 {% extends 'blog/base.html' %}
-
+{% load staticfiles %}
 {% block content %}
-
-
-        <h1 class='posttitle loader'>{{ post.title }}</h1>
-
-        {% if post.published_date %}
-            <div class="date postdate">
-                {{ post.published_date }}
-            </div>
-
-        {% else %}
-            <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+<div class="row">
+  <div class="col-md-1" style="margin-top:30px;">
+        {% if post.author.profile.photo %}
+              <img src="{{ post.author.profile.photo.url }}" class="mt-3" height="90px" width="90px" style="border-radius:50%;">
+            {% else %}
+              <img src="{% static 'anymonous.png' %}" class="mt-3" height="90px" width="90px" style="border-radius:50%;">
         {% endif %}
+      </div>
+      <div class="col-md">  <h1 class='posttitle loader'>{{ post.title }}</h1></div>
+      {% if post.published_date %}
+          <div class="date postdate">
+              {{ post.published_date }}
+          </div>
+
+      {% else %}
+          <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+      {% endif %}
+    </div>
+
+
 
       <p class='postcontent' >{{ post.text|safe|linebreaksbr }}</p>
 

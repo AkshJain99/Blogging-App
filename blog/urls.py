@@ -1,5 +1,7 @@
 from django.conf.urls import url,include
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
@@ -19,5 +21,5 @@ urlpatterns = [
     url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
     url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
-    
-]
+    url(r'^user_detials/(?P<pk>\d+)$',views.userdetials,name='userdetials'),
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
