@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    Username: <input type="text" placeholder="Enter Username" name='username'>
+    Password: <input type="password" name="password">
+
+    <input type="submit"value="Login">
+</form>
+
+{% endblock %}
