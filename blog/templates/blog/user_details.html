@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% load staticfiles %}
+<h1>USER DETAILS</h1>
+<form method="POST" action="{% url 'userdetials' user.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% if error %}
+    {{ error }}
+    <br />
+    <br />
+    {% endif %}
+    <br>
+    {% if user.profile.photo %}
+          <img src="{{ user.profile.photo.url }}" class="mt-3" height="90px" width="90px" style="border-radius:50%;">
+        {% else %}
+          <img src="{% static 'anymonous.png' %}" class="mt-3" height="90px" width="90px" style="border-radius:50%;">
+    {% endif %}
+    <br><br>
+    <label>Update Profile Picture</label>
+    <input type="file" name="photo">
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+
+{% endblock %}

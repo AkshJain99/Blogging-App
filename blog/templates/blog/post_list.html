@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% load staticfiles %}
 
 {% block content %}
 <div class="centerstage">
@@ -6,13 +7,24 @@
 
     {% for post in post_list %}
         <div class="post">
-
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+          <div class="row">
+            <div class="col-md-1" style="margin-right:20px;margin-top:15px;">
+              {% if post.author.profile.photo %}
+                    <img src="{{ post.author.profile.photo.url }}" class="mt-3" height="50px" width="50px" style="border-radius:50%;">
+                  {% else %}
+                    <img src="{% static 'anymonous.png' %}" class="mt-3" height="50px" width="50px" style="border-radius:50%;">
+              {% endif %}
+            </div>
+            <div class="col-md">
+              <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            </div>
             <div class="date">
                 <p>Published on: {{ post.published_date|date:"D M Y"}}</p>
             </div>
+          </div>
             <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
         </div>
+        <br><br>
     {% endfor %}
 </div>
-{% endblock %}  
+{% endblock %}

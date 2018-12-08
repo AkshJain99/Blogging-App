@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse 
+from django.core.urlresolvers import reverse
 
 from django.views.generic import (TemplateView,ListView,
                                   DetailView,CreateView,
@@ -146,8 +146,19 @@ def user_login(request):
                 request.session['member_name'] = username
                 print("Hello World Done")
                 return HttpResponseRedirect(reverse('dashboard'))
-                
+
     return render(request,'registration/user_login.html')
 
 def dashboard(request):
     return render(request,'registration/dashboard.html')
+
+@login_required
+def userdetials(request,pk):
+    if request.method == "POST":
+        user = User.objects.get(pk=pk)
+        user.profile.photo = request.FILES['photo']
+        user.save()
+        return render(request,'blog/post_list.html')
+    else:
+        user = get_object_or_404(User,id=pk)
+        return render(request,'blog/user_details.html',{'user':user})

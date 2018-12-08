@@ -58,7 +58,7 @@
         </li>
 
         <li>
-          <a >Welcome: {{ user.username }}</a>
+          <a href="{% url 'userdetials' user.id %}">Welcome: {{ user.username }}</a>
         </li>
           {% else %}
           <li><a class='nav navbar-right' href="{% url 'login' %}" ><span class="glyphicon glyphicon-user"></span></a></li>
