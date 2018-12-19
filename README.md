@@ -10,6 +10,28 @@ _Create a beautiful and powerful blog in under 4mb!_
 
 ### [| Example Website >>>](https://mighty-reaches-82829.herokuapp.com/)
 
+### Installation Process
+
+* clone the repository at your preferred directory:
+```
+git clone https://github.com/AkshJain99/mysite.git
+
+```
+* enter the repository cloned.
+```
+cd mysite
+```
+* activate the virtual environment in the directory
+```
+pip --version
+pip install virtualenv
+virtualenv .
+source bin/activate
+```
+* install all the tools mentioned in requirements.txt
+```
+pip install -r requirements.txt
+```
 
 
 ### FAQ
