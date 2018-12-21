@@ -17,6 +17,20 @@ _Create a beautiful and powerful blog in under 4mb!_
 git clone https://github.com/AkshJain99/mysite.git
 
 ```
+
+* create database 
+```
+sudo apt-get update
+sudo apt-get install python-pip python-dev mysql-server libmysqlclient-dev
+sudo mysql_install_db
+sudo mysql_secure_installation
+mysql -u root -p
+CREATE DATABASE project CHARACTER SET UTF8;
+CREATE USER projectuser@localhost IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON project.* TO myprojectuser@localhost;
+FLUSH PRIVILEGES;
+exit
+```
 * enter the repository cloned.
 ```
 cd mysite
@@ -28,11 +42,32 @@ pip install virtualenv
 virtualenv .
 source bin/activate
 ```
+* install mysqlclient
+```
+pip install django mysqlclient
+```
+* start the project
+```
+django-admin.py startproject myproject .
+```
 * install all the tools mentioned in requirements.txt
 ```
 pip install -r requirements.txt
 ```
-
+* migrate the created database
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+* create superuser
+```
+python manage.py createsuperuser
+```
+* run the server
+```
+python manage.py runserver
+```
+work on the localhost you just created.
 
 ### FAQ
 ___
