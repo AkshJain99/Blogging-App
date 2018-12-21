@@ -2,7 +2,7 @@
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
 ### A Project In Django (Python 3.x)
-_A simple blogging platform for the modern era._
+_A simple blogging platform for the modern Time._
 
 #### This web application generates a simple but capable blog using Django. The platform allows authors to create text posts using a dedicated admin portal, and allows logged in users to post comments through a simple comment form.
 
