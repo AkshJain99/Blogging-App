@@ -1,0 +1,31 @@
+[Spacing]
+files = mysite/**/*.py
+bears = SpaceConsistencyBear
+use_spaces = True
+
+[all.python]
+files = mysite/**/*.py
+language = Python
+
+
+[all.python.default]
+ignore += mysite/**/models.py
+bears = PEP8Bear, PycodestyleBear, PyFlakesBear, QuotesBear
+default_actions = *: ApplyPatchAction
+
+[all.linelength]
+ignore += mysite/**/models.py
+bears = LineLengthBear
+
+[all.python.models]
+files = mysite/**/models.py
+bears = LineLengthBear, PycodestyleBear, PyFlakesBear, QuotesBear
+max_line_length = 120
+
+[all.links]
+bears = InvalidLinkBear
+
+[all.plural]
+bears = PyPluralNamingBear
+files = mysite/**/*.py
+ignore_list = LOGGING, MIDDLEWARE
