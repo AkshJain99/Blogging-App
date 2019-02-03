@@ -15,36 +15,6 @@ env:
     - ENCRYPTION_LABEL: "defac9b1fa56"
     - COMMIT_AUTHOR_EMAIL: "nobody@coala.io"
 
-jobs:
-  include:
-    # This more closely emulates a forked build
-    # However the git remote is not correct
-    # Only a GH_TOKEN is required.
-    - stage: test
-      env: GL_TOKEN="" GCI_TOKEN="" OH_TOKEN=""
-    # A proper build with the tokens available
-    - stage: deploy
-      after_success: ./.ci/deploy.sh
-    - python: 3.6
-      stage: moban
-      env:
-      before_install: false
-      install: pip install moban
-      script: .ci/check_moban.sh
-      after_success: false
-
-before_install:
-  - printf '%s\n'
-           "$(cat test-requirements.txt requirements.txt)"
-           > requirements.txt
-  - npm i -g jshint
-
-script:
-  - ./.ci/build.sh
-  - rm -rf private/
-  - pytest
-  - coala --non-interactive -V
-
 notifications:
   email: false
   webhooks: https://www.travisbuddy.com/
