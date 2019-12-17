@@ -1,6 +1,7 @@
 {% extends "blog/base.html" %}
 {% block content %}
 {% load staticfiles %}
+<br><br><hr><br>
 <h1>USER DETAILS</h1>
 <form method="POST" action="{% url 'userdetials' user.id %}" enctype="multipart/form-data">
     {% csrf_token %}

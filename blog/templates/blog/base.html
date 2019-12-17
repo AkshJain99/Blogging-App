@@ -13,61 +13,57 @@
         <script src="//cdn.jsdelivr.net/medium-editor/latest/js/medium-editor.min.js"></script>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/medium-editor/latest/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
 
-
-        {# Custom CSS#}
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-
-        {# Fonts#}
-        <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
-
+        <link href="{%static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" type = "text/css"/>
+        <link href="{% static 'vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet" type="text/css">
+        <link href="{%static 'css/clean-blog.min.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/clean-blog.min.css' %}" type = "text/css"/>
 
 
 
-<body class='loader'>
+
+<body >
 
 
-  <nav class="navbar navbar-default techfont custom-navbar">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-
-
-      <ul class="nav navbar-nav">
-        <li><a class='navbar-brand bigbrand' href="{% url 'post_list' %}">AKSHIT BLOG</a></li>
-        <li><a href="{% url 'about'%}">ABOUT</a></li>
-        <li><a href="https://www.github.com">GITHUB</a></li>
-        <li><a href="https://www.linkedin.com">LiINKEDIN</a></li>
-        <li><a href="https://www.facebook.com">FACEBOOK</a></li>
-        <li><a href="{% url 'signup' %}">SIGNUP</a></li>
-        <li><a href="{% url 'user_login' %}">LOGIN</a></li>
+        <a class="navbar-brand" href="{% url 'post_list' %}"><font style="color:black ;font-size:20px">AKSHIT BLOG</font></a>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li><a class="nav-link" href="{% url 'about'%}">ABOUT</a></li>
+        <li><a class="nav-link" href="{% url 'signup' %}">SIGNUP</a></li>
+        <li><a class="nav-link" href="{% url 'user_login' %}">LOGIN</a></li>
       </ul>
-
+      <div class="container">
       <ul class="nav navbar-nav navbar-right">
         {% if user.is_authenticated %}
         <li>
-          <a href="{% url 'post_new' %}" >New UPDATES</a>
+          <a  href="{% url 'post_new' %}" >New UPDATES</a>
         </li>
 
         <li>
-          <a href="{% url 'post_draft_list' %}">Drafts</a>
+          <a  href="{% url 'post_draft_list' %}">Drafts</a>
         </li>
         <li>
-          <a href="{% url 'logout' %}" >Log out</a>
-        </li>
-
-        <li>
-          <a href="{% url 'passwordreset' %}" >Reset Password</a>
+          <a  href="{% url 'logout' %}" >Log out</a>
         </li>
 
         <li>
-          <a href="{% url 'userdetials' user.id %}">Welcome: {{ user.username }}</a>
+          <a  href="{% url 'passwordreset' %}" >Reset Password</a>
+        </li>
+
+        <li>
+          <a href="{% url 'userdetials' user.id %}"> {{ user.username }}</a>
         </li>
           {% else %}
           <li><a class='nav navbar-right' href="{% url 'login' %}" ><span class="glyphicon glyphicon-user"></span></a></li>
         {% endif %}
 
       </ul>
+    </div>
+     </div> 
   </div>
 </nav>
-<h1><B><I><marquee>WELCOME TO AKSHIT BLOG</marquee></I></B></h1>
   {# The actual blog posts#}
         <div class="content container">
             <div class="row">
@@ -83,6 +79,42 @@
         </div>
 
 {# SCRIPTS#}
+
+<footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://github.com/">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://facebook.com/">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://linkedin.com/">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; akshit blogs 2019</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 <script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
 
