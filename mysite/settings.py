@@ -80,17 +80,16 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.open_id.OpenIdAuth',
     'social_core.backends.google.GoogleOpenId',
-
     'django.contrib.auth.backends.ModelBackend',
 )
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 SOCIAL_AUTH_GITHUB_KEY = os.environ.get('GITHUB_KEY')
 SOCIAL_AUTH_GITHUB_SECRET = os.environ.get('GITHUB_SECRET')
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('GOOGLE_OAUTH2_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('GOOGLE_OAUTH2_SECRET')
-
-
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
